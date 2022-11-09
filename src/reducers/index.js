@@ -14,6 +14,8 @@ const clothingCategoriesReducer = () => {
         { type: "Bottom", product: "Linen Trouser", price: "25.00" },
         { type: "Bottom", product: "Skinny Jeans", price: "20.00" },
         { type: "Shoes", product: "Comfortable Trainer", price: "30.00" },
+        { type: "Shoes", product: "Comfortable Trainer", price: "30.00" },
+        { type: "Bags", product: "Comfortable Trainer", price: "30.00" },
       ],
     },
     {
@@ -21,8 +23,12 @@ const clothingCategoriesReducer = () => {
       items: [
         { type: "Tops", product: "Simple Dalily T-Shirt", price: "12.00" },
         { type: "Tops", product: "Simple Dalily T-Shirt", price: "12.00" },
-        { type: "Tops", product: "Simple Dalily T-Shirt", price: "12.00" },
-        { type: "Tops", product: "Simple Dalily T-Shirt", price: "12.00" },
+        { type: "Bottoms", product: "Simple Dalily T-Shirt", price: "12.00" },
+        { type: "Bottoms", product: "Simple Dalily T-Shirt", price: "12.00" },
+        { type: "Bottoms", product: "Simple Dalily T-Shirt", price: "12.00" },
+        { type: "Shoes", product: "Simple Dalily T-Shirt", price: "12.00" },
+        { type: "Shoes", product: "Simple Dalily T-Shirt", price: "12.00" },
+        { type: "Bags", product: "Simple Dalily T-Shirt", price: "12.00" },
       ],
     },
   ];
