@@ -16,6 +16,7 @@ const clothingCategoriesReducer = () => {
         { type: "Shoes", product: "Comfortable Trainer", price: "30.00" },
         { type: "Shoes", product: "Comfortable Trainer", price: "30.00" },
         { type: "Bags", product: "Comfortable Trainer", price: "30.00" },
+        { type: "Accesories", product: "Comfortable Trainer", price: "30.00" },
       ],
     },
     {
