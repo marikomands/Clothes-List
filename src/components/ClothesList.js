@@ -36,6 +36,7 @@ const ClothesList = (props) => {
     // console.log("🚀 ~ typesList ~ allTypes", allTypes);
 
     const typesArray = items.reduce((nonDupes, item) => {
+      //第一引数：初期値（又は、直前のコールバックで返された値、第二関数：配列内で処理されている要素
       if (!nonDupes.includes(item.type)) {
         return [...nonDupes, item.type];
       } else {
