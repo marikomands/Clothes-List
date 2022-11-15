@@ -5,7 +5,12 @@ const clothingCategoriesReducer = () => {
     {
       name: "Ladies",
       items: [
-        { type: "Tops", product: "Simple Dalily T-Shirt", price: "12.00" },
+        {
+          type: "Tops",
+          product: "Simple Dalily T-Shirt",
+          price: "12.00",
+          // category: "Ladies",
+        },
         {
           type: "Tops",
           product: "Crew-Neck Long Sleeve T-shirt",
@@ -13,23 +18,23 @@ const clothingCategoriesReducer = () => {
         },
         { type: "Bottom", product: "Linen Trouser", price: "25.00" },
         { type: "Bottom", product: "Skinny Jeans", price: "20.00" },
+        { type: "Shoes", product: "Court Shoes", price: "30.00" },
         { type: "Shoes", product: "Comfortable Trainer", price: "30.00" },
-        { type: "Shoes", product: "Comfortable Trainer", price: "30.00" },
-        { type: "Bags", product: "Comfortable Trainer", price: "30.00" },
-        { type: "Accesories", product: "Comfortable Trainer", price: "30.00" },
+        { type: "Bags", product: "Daily Backpack", price: "30.00" },
+        { type: "Accesories", product: "Warm Gloves", price: "30.00" },
       ],
     },
     {
       name: "Men",
       items: [
         { type: "Tops", product: "Simple Dalily T-Shirt", price: "12.00" },
-        { type: "Tops", product: "Simple Dalily T-Shirt", price: "12.00" },
-        { type: "Bottoms", product: "Simple Dalily T-Shirt", price: "12.00" },
-        { type: "Bottoms", product: "Simple Dalily T-Shirt", price: "12.00" },
-        { type: "Bottoms", product: "Simple Dalily T-Shirt", price: "12.00" },
-        { type: "Shoes", product: "Simple Dalily T-Shirt", price: "12.00" },
-        { type: "Shoes", product: "Simple Dalily T-Shirt", price: "12.00" },
-        { type: "Bags", product: "Simple Dalily T-Shirt", price: "12.00" },
+        { type: "Tops", product: "Going-out Shirt", price: "12.00" },
+        { type: "Bottoms", product: "Simple Dalily Trouser", price: "12.00" },
+        { type: "Bottoms", product: "Wide Pants", price: "12.00" },
+        { type: "Bottoms", product: "Stretchy Jeans", price: "12.00" },
+        { type: "Shoes", product: "Runner's Trainers", price: "12.00" },
+        { type: "Shoes", product: "Casual Shoes", price: "12.00" },
+        { type: "Bags", product: "Large Backpack", price: "12.00" },
       ],
     },
   ];
@@ -66,39 +71,37 @@ const clothingCategoriesReducer = () => {
 //   price: "25.00",
 // },
 
-// const clothesReducer = (selectedClothes = null, action) => {
+// const clothesReducer = (selectedType = null, action) => {
 //   if (action.type === "Select_Clothes") {
 //     return action.payload;
 //   }
-//   return selectedClothes;
+//   return selectedType;
 // };
-
-const selectedClothesByCategoryReducer = (
-  selectedClothesByCategory = null,
-  action
-) => {
-  if (action.type === "Clothes_Category_Selected") {
-    selectedClothesByCategory = clothingCategoriesReducer.filter(
-      (clothingCategory) => {
-        return clothingCategoriesReducer.name === action.payload;
-      }
-    );
-  }
-
-  return selectedClothesByCategory;
-};
 
 // const selectedClothesByCategoryReducer = (
 //   selectedClothesByCategory = null,
 //   action
 // ) => {
-//   if (action.type === "Clothes_Selected") {
-//     return action.payload;
+//   if (action.type === "Clothes_Category_Selected") {
+//     selectedClothesByCategory = clothingCategoriesReducer.filter(
+//       (clothingCategory) => {
+//         return clothingCategoriesReducer.name === action.payload;
+//       }
+//     );
 //   }
+
 //   return selectedClothesByCategory;
 // };
 
+const selectedTypeByCategoryReducer = (state = null, action) => {
+  if (action.type === "Clothes_Selected") {
+    return action.payload;
+  }
+  return state;
+};
+
 export default combineReducers({
   categories: clothingCategoriesReducer,
-  selectedClothesByCategory: selectedClothesByCategoryReducer,
+  // selectedClothesByCategory: selectedClothesByCategoryReducer,
+  selectedTypeByCategory: selectedTypeByCategoryReducer,
 });
