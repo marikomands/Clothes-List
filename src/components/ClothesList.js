@@ -1,17 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import { selectClothes } from "../actions";
 
 const ClothesList = (props) => {
-  const itemsList = (items) => {
-    return items.map((item) => {
-      return (
-        <div key={items.name}>
-          <div>{item.type}</div>
-          <div>{item.product}</div>
-        </div>
-      );
-    });
-  };
+  // const itemsList = (items) => {
+  //   return items.map((item) => {
+  //     return (
+  //       <div key={items.name}>
+  //         <div>{item.type}</div>
+  //         <div>{item.product}</div>
+  //       </div>
+  //     );
+  //   });
+  // };
 
   // console.log("🚀 ~ itemsList ~ itemsList", itemsList);
 
@@ -27,6 +28,7 @@ const ClothesList = (props) => {
   // };
 
   const typesList = (items) => {
+    console.log("🚀 ~ typesList ~ items", items);
     // const allItems = props.categories.reduce((items, category) => {
     //   return [...items, ...category.items];
     // }, []);
@@ -50,16 +52,31 @@ const ClothesList = (props) => {
 
     // const typesArray = [...typesSet];
     // console.log("🚀 ~ typesList ~ typesArray", typesArray);
+    // map関数は配列の時だけ使える
+    return typesArray.map((type) => (
+      <div
+        key={type}
+        onClick={() => {
+          // console.log("Click Type", type);
+          const filteredItems = items.filter((item) => item.type === type);
 
-    return typesArray.map((type) => <div key={type}>{type}</div>);
+          // console.log("🚀 ~ typesList ~ filteredItems", filteredItems);
+          props.selectClothes(filteredItems);
+        }}
+      >
+        {type}
+      </div>
+    ));
   };
 
+  // const categoriesArray = props.items.reduce();
   const categoryList = () => {
     return props.categories.map((category) => {
       console.log("🚀 ~ categoryList ~ category", category);
       return (
         <div key={category.name}>
           <p>{category.name}</p>
+
           {typesList(category.items)}
           {/* {itemsList(category.items)} */}
         </div>
@@ -80,4 +97,4 @@ const mapStateToProps = (state) => {
   return { categories: state.categories };
 };
 
-export default connect(mapStateToProps)(ClothesList);
+export default connect(mapStateToProps, { selectClothes })(ClothesList);
