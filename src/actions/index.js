@@ -1,15 +1,15 @@
-// export const selectClothes = (clothes) => {
-//   return {
-//     type: "Select_Clothes",
-//     payload: clothes,
-//   };
-// };
-
-export const selectClothingCategory = (category) => {
+export const selectClothes = (items) => {
   return {
-    type: "Clothes_Category_Selected",
-    payload: category,
+    type: "Clothes_Selected",
+    payload: items,
   };
 };
+
+// export const selectClothingCategory = (category) => {
+//   return {
+//     type: "Clothes_Category_Selected",
+//     payload: category,
+//   };
+// };
 
 // selectClothingCategory("Men");
