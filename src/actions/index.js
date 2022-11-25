@@ -1,4 +1,5 @@
 export const selectClothes = (items) => {
+  console.log("🚀 ~ selectClothes ~ items", items);
   return {
     type: "Clothes_Selected",
     payload: items,
