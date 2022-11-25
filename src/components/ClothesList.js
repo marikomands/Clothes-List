@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { selectClothes } from "../actions";
 
-const ClothesList = (props) => {
+const ClothesList = ({ categories, selectClothes }) => {
   // const itemsList = (items) => {
   //   return items.map((item) => {
   //     return (
@@ -54,24 +54,26 @@ const ClothesList = (props) => {
     // console.log("🚀 ~ typesList ~ typesArray", typesArray);
     // map関数は配列の時だけ使える
     return typesArray.map((type) => (
-      <div
-        key={type}
-        onClick={() => {
-          // console.log("Click Type", type);
-          const filteredItems = items.filter((item) => item.type === type);
+      <div>
+        <div
+          key={type}
+          onClick={() => {
+            // console.log("Click Type", type);
+            const filteredItems = items.filter((item) => item.type === type);
 
-          // console.log("🚀 ~ typesList ~ filteredItems", filteredItems);
-          props.selectClothes(filteredItems);
-        }}
-      >
-        {type}
+            // console.log("🚀 ~ typesList ~ filteredItems", filteredItems);
+            selectClothes(filteredItems);
+          }}
+        >
+          {type}
+        </div>
       </div>
     ));
   };
 
   // const categoriesArray = props.items.reduce();
   const categoryList = () => {
-    return props.categories.map((category) => {
+    return categories.map((category) => {
       console.log("🚀 ~ categoryList ~ category", category);
       return (
         <div key={category.name}>
