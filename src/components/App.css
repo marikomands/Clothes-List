@@ -1,3 +1,29 @@
-.component {
+.App {
+  background-color: crimson;
   display: flex;
+}
+
+.ClothesCategories {
+  background-color: pink;
+}
+
+.ClothesItems {
+  background-color: aquamarine;
+}
+
+.ClothesItem {
+  background-color: coral;
+}
+
+.ClothesItem img {
+  height: 100px;
+  width: auto;
+}
+
+.ClothesItem .buyButton {
+  background-color: orange;
+}
+
+.ClothesItem .buyButton.bought {
+  background-color: green;
 }
